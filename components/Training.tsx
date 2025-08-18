@@ -72,7 +72,7 @@ export default function Training() {
                   id="image0_39_11182"
                   width="100%"
                   height="100%"
-                  xlinkHref="pawsitive-dog-1.png"
+                  xlinkHref="pawsitive_dog_3.jpg"
                   preserveAspectRatio="xMidYMid meet"
                 />
               </pattern>
@@ -80,8 +80,8 @@ export default function Training() {
           </svg>
           <div className="space-y-6">
             {' '}
-            <h1 className="space-y-6 text-3xl font-semibold text-grape lg:text-5xl">
-              Pawsitive Reinforcement dog training
+            <h1 className="space-y-6 text-5xl font-semibold text-grape lg:text-5xl">
+              Pawsitive reinforcement dog training
             </h1>
             <p>
               Choose between 3 different high quality & affordable dog training

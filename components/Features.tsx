@@ -34,7 +34,7 @@ export default function Features() {
             className="flex max-w-[394px] flex-col items-center text-center"
           >
             {feature.illustration}
-            <h2 className="mt-2 text-2xl font-semibold">{feature.title}</h2>
+            <h2 className="mt-2 text-[28px] lg:text-3xl font-semibold">{feature.title}</h2>
             <p className="mt-6 text-lg">{feature.description}</p>
           </div>
         ))}
