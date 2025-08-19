@@ -2,26 +2,33 @@
 import AboutPawSVG from '@/public/about-paw.svg';
 import AccentSVG from '@/public/accent-4.svg';
 import { Badge } from './ui/badge';
+import { useFadeIn } from '@/lib/hooks/useFadeIn';
 
 export default function About() {
+  const { elementRef: contentRef, isVisible: contentVisible } = useFadeIn();
+  const { elementRef: imageRef, isVisible: imageVisible } = useFadeIn({ threshold: 0.3 });
+
   return (
     <section
       id="about"
       className="flex bg-[#CCBBF2]/10 py-12 md:py-20 xl:py-30"
     >
       <div className="container flex flex-col lg:flex-row lg:gap-[120px]">
-        <div className="max-w-[631px] space-y-4">
+        <div 
+          ref={contentRef}
+          className={`fade-in-left ${contentVisible ? 'visible' : ''} max-w-[631px] space-y-4`}
+        >
           <div className="relative inline-block">
             <AboutPawSVG className="absolute -left-28 -top-20 -z-[1] hidden h-48 w-48 2xl:inline" />
             <AccentSVG className="absolute -right-20 -top-12 -z-[1] hidden h-24 w-24 lg:inline" />
-            <h1 className="text-3xl font-semibold md:text-4xl lg:text-5xl">
+            <h2>
               About us
-            </h1>
+            </h2>
           </div>
 
-          <div className="flex h-6 items-center gap-1 text-2xl font-semibold">
-            <h2 className="text-grape">Amanda</h2>
-            <span className="text-[#CCBBF2]">Founder</span>
+          <div className="flex h-6 items-center gap-2">
+            <h4 className="text-grape">Amanda</h4>
+            <h4 className="text-[#CCBBF2]">Founder</h4>
           </div>
 
           <div className="flex flex-col items-start justify-start gap-3 lg:flex-row lg:items-center">
@@ -80,6 +87,9 @@ export default function About() {
         </div>
 
         <svg
+          ref={imageRef}
+          className={`fade-in-right ${imageVisible ? 'visible' : ''}`}
+          style={{ transitionDelay: '0.3s' }}
           viewBox="0 0 533 518"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

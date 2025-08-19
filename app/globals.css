@@ -77,4 +77,152 @@
   body {
     @apply bg-background text-foreground;
   }
+
+          /* Responsive Typography for h1 */
+        h1 {
+          font-size: 40px; /* Mobile/XS default */
+          line-height: 1.1;
+          font-weight: 600;
+        }
+
+        /* Medium and Small screens */
+        @media (min-width: 640px) {
+          h1 {
+            font-size: 48px;
+          }
+        }
+
+        /* Large screens and above */
+        @media (min-width: 1024px) {
+          h1 {
+            font-size: 64px;
+          }
+        }
+
+        /* Responsive Typography for h2 */
+        h2 {
+          font-size: 32px; /* Mobile/XS default */
+          line-height: 1.1;
+          font-weight: 600;
+        }
+
+        /* Medium and Small screens */
+        @media (min-width: 640px) {
+          h2 {
+            font-size: 40px;
+          }
+        }
+
+        /* Large screens and above */
+        @media (min-width: 1024px) {
+          h2 {
+            font-size: 48px;
+          }
+        }
+
+        /* Responsive Typography for h3 */
+        h3 {
+          font-size: 28px; /* Mobile/XS and Medium/Small default */
+          line-height: 1.1;
+          font-weight: 600;
+        }
+
+        /* Large screens and above */
+        @media (min-width: 1024px) {
+          h3 {
+            font-size: 32px;
+          }
+        }
+
+        /* Responsive Typography for h4 */
+        h4 {
+          font-size: 24px; /* Mobile/XS and Small default */
+          line-height: 1.1;
+          font-weight: 600;
+        }
+
+        /* Medium screens and above */
+        @media (min-width: 640px) {
+          h4 {
+            font-size: 28px;
+          }
+        }
+
+        /* Paragraph text - consistent 16px at all resolutions */
+        p {
+          font-size: 16px;
+          line-height: 1.5;
+        }
+
+        /* Service title font class */
+        .service-title {
+          font-size: 24px !important; /* Small/XS default */
+          font-weight: 500 !important; /* Medium weight */
+          line-height: 1.2;
+          font-family: inherit;
+        }
+
+        /* Medium screens and above */
+        @media (min-width: 640px) {
+          .service-title {
+            font-size: 28px !important;
+          }
+        }
+}
+
+@layer components {
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .fade-in-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .fade-in-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .fade-in-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .fade-in-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .fade-in-scale {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .fade-in-scale.visible {
+    opacity: 1;
+    transform: scale(1);
+  }
 }

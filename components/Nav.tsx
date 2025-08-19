@@ -12,6 +12,8 @@ import Link from 'next/link';
 import LogoSVG from 'public/logo.svg';
 import { Button } from './ui/button';
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
+import { useFadeIn } from '@/lib/hooks/useFadeIn';
+
 const navigationMenuItems = [
   {
     label: 'Home',
@@ -36,8 +38,13 @@ const navigationMenuItems = [
 ];
 
 export function Nav() {
+  const { elementRef: navRef, isVisible: navVisible } = useFadeIn({ threshold: 0.1 });
+
   return (
-    <div className="flex h-[100px] items-center px-6 lg:px-10">
+    <div 
+      ref={navRef}
+      className={`fade-in ${navVisible ? 'visible' : ''} flex h-[100px] items-center px-6 lg:px-10`}
+    >
       <Link href="/">
         <LogoSVG className="h-12" />
         <span className="sr-only">Pawsitive Pet Care Homepage</span>

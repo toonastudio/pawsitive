@@ -9,7 +9,13 @@ import Socials from './Socials';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
+import { useFadeIn } from '@/lib/hooks/useFadeIn';
+
 export default function Contact() {
+  const { elementRef: titleRef, isVisible: titleVisible } = useFadeIn();
+  const { elementRef: formRef, isVisible: formVisible } = useFadeIn({ threshold: 0.2 });
+  const { elementRef: socialsRef, isVisible: socialsVisible } = useFadeIn({ threshold: 0.3 });
+
   const handleSubmit = async (formData: FormData) => {
     return submitContactFormAction(formData).then(({ success }) => {
       if (success) {
@@ -39,14 +45,21 @@ export default function Contact() {
       <PawOutlineSVG className="pointer-events-none absolute -bottom-72 right-0 hidden h-[680px]  w-[680px] -rotate-45 lg:inline" />
       <Flower2SVG className="pointer-events-none absolute right-16 top-16 hidden h-[125px] w-[125px] lg:inline" />
       <div className="container flex flex-col items-center">
-        <h1 className="mb-4 text-3xl font-semibold md:text-4xl lg:text-5xl">
-          Any questions?
-        </h1>
-        <p>Contact Pawsitive Pet Care today.</p>
+        <div 
+          ref={titleRef}
+          className={`fade-in-up ${titleVisible ? 'visible' : ''} text-center`}
+        >
+                      <h2 className="mb-4">
+              Any questions?
+            </h2>
+          <p>Contact Pawsitive Pet Care today.</p>
+        </div>
 
         <form
+          ref={formRef}
           action={handleSubmit}
-          className="z-10 mt-9 w-full max-w-[474px] space-y-8"
+          className={`fade-in-up ${formVisible ? 'visible' : ''} z-10 mt-9 w-full max-w-[474px] space-y-8`}
+          style={{ transitionDelay: '0.2s' }}
         >
           <Input
             name="name"
@@ -81,7 +94,11 @@ export default function Contact() {
 
           <SubmitButton />
         </form>
-        <div className="z-10 mt-9">
+        <div 
+          ref={socialsRef}
+          className={`fade-in-up ${socialsVisible ? 'visible' : ''} z-10 mt-9`}
+          style={{ transitionDelay: '0.4s' }}
+        >
           <Socials />
         </div>
       </div>

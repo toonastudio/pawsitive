@@ -2,10 +2,16 @@
 
 import PawsitiveSVG from 'public/pawsitive.svg';
 import Socials from './Socials';
+import { useFadeIn } from '@/lib/hooks/useFadeIn';
 
 export default function Footer() {
+  const { elementRef: footerRef, isVisible: footerVisible } = useFadeIn({ threshold: 0.1 });
+
   return (
-    <footer className="bg-[#131334]">
+    <footer 
+      ref={footerRef}
+      className={`fade-in-up ${footerVisible ? 'visible' : ''} bg-[#131334]`}
+    >
       <div className="container flex w-full flex-col items-center justify-center gap-9 py-9 lg:flex-row">
         <PawsitiveSVG className="h-12" />
 

@@ -1,11 +1,17 @@
 'use client';
+import { useFadeIn } from '@/lib/hooks/useFadeIn';
 
 export default function Training() {
+  const { elementRef: imageRef, isVisible: imageVisible } = useFadeIn({ threshold: 0.2 });
+  const { elementRef: contentRef, isVisible: contentVisible } = useFadeIn({ threshold: 0.3 });
+
   return (
     <>
       <section className=" flex bg-[#CCBBF2]/10 px-5 py-12">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-6 lg:flex-row">
           <svg
+            ref={imageRef}
+            className={`fade-in-left ${imageVisible ? 'visible' : ''}`}
             viewBox="0 0 360 280"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -78,11 +84,15 @@ export default function Training() {
               </pattern>
             </defs>
           </svg>
-          <div className="space-y-6">
+          <div 
+            ref={contentRef}
+            className={`fade-in-right ${contentVisible ? 'visible' : ''} space-y-6`}
+            style={{ transitionDelay: '0.2s' }}
+          >
             {' '}
-            <h1 className="space-y-6 text-5xl font-semibold text-grape lg:text-5xl">
+            <h2 className="space-y-6 text-grape">
               Pawsitive reinforcement dog training
-            </h1>
+            </h2>
             <p>
               Choose between 3 different high quality & affordable dog training
               options. Find the training package that best suits the needs of
