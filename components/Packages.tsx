@@ -193,7 +193,7 @@ export default function Packages() {
                     <Card 
                       key={i}
                       ref={cardRef}
-                      className={`fade-in-up ${cardVisible ? 'visible' : ''}`}
+                      className={`fade-in-up ${cardVisible ? 'visible' : ''} max-w-[400px]`}
                       style={{ transitionDelay: `${i * 0.1}s` }}
                     >
                       <CardHeader>
@@ -252,7 +252,7 @@ export default function Packages() {
                     <Card 
                       key={i}
                       // ref={cardRef}
-                      className="fade-in-up visible"
+                      className="fade-in-up visible max-w-[400px]"
                       style={{ transitionDelay: `${i * 0.1}s` }}
                     >
                       <CardHeader>
