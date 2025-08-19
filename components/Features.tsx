@@ -29,7 +29,7 @@ export default function Features() {
   const { elementRef: sectionRef, isVisible: sectionVisible } = useFadeIn();
 
   return (
-    <section ref={sectionRef} id="features" className="flex bg-primary/10 px-5 py-12">
+    <section ref={sectionRef} id="features" className="flex bg-primary/10 px-5 py-20">
       <div className="container flex flex-col items-center gap-10 lg:gap-[100px] lg:flex-row">
         {features.map((feature, i) => {
           const { elementRef: featureRef, isVisible: featureVisible } = useFadeIn({

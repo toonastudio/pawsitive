@@ -11,7 +11,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="flex bg-[#CCBBF2]/10 py-12 md:py-20 xl:py-30"
+      className="flex bg-[#CCBBF2]/10 py-20 md:py-20 xl:py-30"
     >
       <div className="container flex flex-col gap-4 sm:gap-6 md:gap-8 lg:flex-row lg:gap-[80px]">
         <div 

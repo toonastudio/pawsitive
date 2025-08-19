@@ -111,7 +111,7 @@ export function Nav() {
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
         <div 
-          className="fixed left-0 right-0 top-[100px] bottom-0 z-40 border-t border-border animate-in fade-in-0 duration-500" 
+          className="fixed left-0 right-0 top-[100px] bottom-0 z-30 border-t border-border animate-in fade-in-0 duration-500" 
           style={{ 
             backgroundColor: '#F8F8FE', 
             position: 'fixed', 
@@ -119,13 +119,13 @@ export function Nav() {
             right: '0', 
             top: '100px', 
             bottom: '0', 
-            zIndex: '40',
-            minHeight: '100vh',
+            zIndex: '30',
+            height: 'calc(100vh - 100px)',
             width: '100vw'
           }}
         >
-          <div className="flex h-full w-full items-start justify-center pt-8">
-            <div className="flex flex-col items-center gap-12 text-center text-2xl">
+          <div className="flex h-full w-full items-center justify-center">
+            <div className="flex flex-col items-center gap-8 text-center text-2xl" style={{ minHeight: '520px' }}>
               {navigationMenuItems.map((item, index) => (
                 <Link 
                   href={item.href} 

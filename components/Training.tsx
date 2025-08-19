@@ -7,7 +7,7 @@ export default function Training() {
 
   return (
     <>
-      <section className=" flex bg-[#CCBBF2]/10 px-5 py-12">
+      <section className=" flex bg-[#CCBBF2]/10 px-5 py-20">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-6 lg:flex-row">
           <svg
             ref={imageRef}

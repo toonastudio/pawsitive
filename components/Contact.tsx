@@ -39,7 +39,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative overflow-clip bg-grape py-12 text-monochrome-50 md:py-20 scroll-mt-24"
+      className="relative overflow-clip bg-grape py-20 text-monochrome-50 md:py-20 scroll-mt-24"
     >
       <PawOutlineSVG className="pointer-events-none absolute -left-5 top-20 md:left-10 h-[300px] w-[300px] lg:h-[400px] lg:w-[400px]" />
       <PawOutlineSVG className="pointer-events-none absolute -bottom-56 -right-24 md:-bottom-48 md:-right-5 lg:-bottom-72 h-[500px] w-[500px] lg:h-[680px] lg:w-[680px] -rotate-45" />
