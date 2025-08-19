@@ -140,7 +140,7 @@ export default function Services() {
 
             <Button variant={'secondary'} className="w-full lg:w-auto" asChild>
               <Link href="service-list.pdf" target="_blank">
-                View prices <ArrowRight className="ml-2 inline-block" />
+                View prices <ArrowRight className="ml-2 inline-block h-5 w-5" />
               </Link>
             </Button>
           </div>

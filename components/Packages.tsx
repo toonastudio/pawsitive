@@ -164,7 +164,7 @@ export default function Packages() {
             ref={titleRef}
             className={`fade-in-up ${titleVisible ? 'visible' : ''} relative`}
           >
-            <DoubleStarSVG className="absolute -right-20 -top-3 h-16 w-16 text-primary" />
+            <DoubleStarSVG className="absolute -right-20 -top-3 h-16 w-16 text-grape" />
 
             <h2 className="text-center">
               Prices & <br className="lg:hidden" />
@@ -217,7 +217,7 @@ export default function Packages() {
                             {item.includes.map((include, i) => (
                               <li key={i} className="flex items-center">
                                 {' '}
-                                <CheckSVG className="mr-2 h-5 w-5 text-primary" />{' '}
+                                <CheckSVG className="mr-2 h-5 w-5 text-grape" />{' '}
                                 {include}
                               </li>
                             ))}
@@ -275,7 +275,7 @@ export default function Packages() {
                           <ul className="list-inside space-y-3">
                             {item.includes.map((include, i) => (
                               <li key={i} className="flex items-center">
-                                <CheckSVG className="mr-2 h-5 w-5 text-primary" />
+                                <CheckSVG className="mr-2 h-5 w-5 text-grape" />
                                 {include}
                               </li>
                             ))}

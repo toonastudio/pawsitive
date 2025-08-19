@@ -5,7 +5,6 @@
 @layer base {
   /* Prevent horizontal scrolling on mobile */
   html, body {
-    overflow-x: hidden;
     position: relative;
     width: 100%;
   }
@@ -321,7 +320,6 @@
 
   /* Ensure main content doesn't overflow */
   main {
-    overflow-x: hidden;
     width: 100%;
   }
 
