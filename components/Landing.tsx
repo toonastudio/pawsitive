@@ -20,7 +20,7 @@ export default function Landing() {
           id="hero-content"
         >
                       <h1 className="mt-6 text-pretty lg:mt-0">
-              Caring for your pet like family
+              Caring for your<br className="hidden 2xl:inline" /> pet like family
             </h1>
           <p className="text-base lg:text-lg">
             We treat your furry friend like one of our own, providing
@@ -46,12 +46,12 @@ export default function Landing() {
         </div>
                  <div
            ref={imageRef}
-           className={`fade-in-right ${imageVisible ? 'visible' : ''} bottom-0 left-[52%] -z-[1] lg:absolute lg:left-[48%] lg:max-w-[530px] xl:max-w-[530px] 2xl:max-w-[620px]`}
+           className={`fade-in-right ${imageVisible ? 'visible' : ''} bottom-0 left-[80%] -z-[1] -mr-10 lg:absolute lg:mr-0 lg:left-[55%] lg:max-w-[600px] xl:max-w-[650px] 2xl:max-w-[700px]`}
            id="hero-image"
          >
            <div className="relative">
              <HeroPawSVG className="absolute -inset-x-6 bottom-0 -z-[1] lg:-inset-x-12" />
-             <Image src={HeroDogIMG} alt="" priority quality={100} className="lg:scale-100 xl:scale-110 2xl:scale-120" />
+             <Image src={HeroDogIMG} alt="" priority quality={100} className="lg:scale-105 xl:scale-115 2xl:scale-125" />
            </div>
          </div>
       </div>

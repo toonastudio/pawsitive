@@ -92,15 +92,15 @@
           font-weight: 600;
         }
 
-        /* Medium and Small screens */
+        /* Small screens and above */
         @media (min-width: 640px) {
           h1 {
             font-size: 48px;
           }
         }
 
-        /* Large screens and above */
-        @media (min-width: 1024px) {
+        /* XL screens and above */
+        @media (min-width: 1200px) {
           h1 {
             font-size: 60px;
           }
@@ -113,15 +113,15 @@
           font-weight: 600;
         }
 
-        /* Medium and Small screens */
+        /* Small screens and above */
         @media (min-width: 640px) {
           h2 {
             font-size: 40px;
           }
         }
 
-        /* Large screens and above */
-        @media (min-width: 1024px) {
+        /* XL screens and above */
+        @media (min-width: 1200px) {
           h2 {
             font-size: 48px;
           }
@@ -129,13 +129,13 @@
 
         /* Responsive Typography for h3 */
         h3 {
-          font-size: 28px; /* Mobile/XS and Medium/Small default */
+          font-size: 28px; /* Mobile/XS and Small default */
           line-height: 1.1;
           font-weight: 600;
         }
 
-        /* Large screens and above */
-        @media (min-width: 1024px) {
+        /* XL screens and above */
+        @media (min-width: 1200px) {
           h3 {
             font-size: 32px;
           }
@@ -312,6 +312,11 @@
   * {
     max-width: 100%;
     box-sizing: border-box;
+  }
+
+  /* Add top margin for fixed header */
+  body {
+    padding-top: 100px; /* Height of the header */
   }
 
   /* Ensure main content doesn't overflow */
