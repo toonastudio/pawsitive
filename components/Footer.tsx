@@ -15,7 +15,7 @@ export default function Footer() {
       <div className="container flex w-full flex-col items-center justify-center gap-9 py-9 lg:flex-row">
         <PawsitiveSVG className="h-12" />
 
-        <p className="text-center text-sm text-gray-50 lg:mr-auto">
+        <p className="text-center text-sm text-gray-50 lg:mr-auto opacity-50">
           Copyright &copy; {new Date().getFullYear()} Pawsitive Pet Care, LLC.{' '}
           <br className="lg:hidden" />
           All rights reserved.
@@ -27,15 +27,19 @@ export default function Footer() {
       </div>
 
       <div className="text-center">
-        <p className="py-5 text-white">
-          Website designed by{' '}
+        <p className="py-5 text-white text-xs flex items-center justify-center gap-1">
+          <span>Website designed by</span>
           <a
             href="https://toona.studio"
-            className="font-bold"
             target="_blank"
             rel="noreferrer"
+            className="inline-flex items-center"
           >
-            Toona ✦ Studio
+            <img 
+              src="/toona-studio-logo.svg" 
+              alt="Toona Studio" 
+              className="h-6 max-h-3"
+            />
           </a>
         </p>
       </div>

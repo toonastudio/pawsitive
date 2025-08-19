@@ -225,4 +225,79 @@
     opacity: 1;
     transform: scale(1);
   }
+
+  /* Remove all borders and focus styles from navigation items */
+  [data-radix-navigation-menu-trigger],
+  [data-radix-navigation-menu-link],
+  .group[role="menuitem"],
+  .group[role="menuitem"] *,
+  [role="menuitem"],
+  [role="menuitem"] *,
+  .group,
+  .group * {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+
+  [data-radix-navigation-menu-trigger]:focus,
+  [data-radix-navigation-menu-link]:focus,
+  .group[role="menuitem"]:focus,
+  [role="menuitem"]:focus,
+  .group:focus {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  [data-radix-navigation-menu-trigger]:focus-visible,
+  [data-radix-navigation-menu-link]:focus-visible,
+  .group[role="menuitem"]:focus-visible,
+  [role="menuitem"]:focus-visible,
+  .group:focus-visible {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  [data-radix-navigation-menu-trigger]:active,
+  [data-radix-navigation-menu-link]:active,
+  .group[role="menuitem"]:active,
+  [role="menuitem"]:active,
+  .group:active {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Additional selectors for any remaining border styles */
+  .group[data-state="open"],
+  .group[data-state="closed"],
+  .group[data-state="active"],
+  .group[data-state="inactive"] {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Target any element with navigation-related classes */
+  .navigation-menu,
+  .navigation-menu *,
+  .navigation-menu-trigger,
+  .navigation-menu-link {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Nuclear option - remove ALL borders from navigation area */
+  nav *,
+  .fade-in *,
+  [class*="navigation"] *,
+  [class*="nav"] * {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
 }

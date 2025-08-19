@@ -13,7 +13,7 @@ export default function About() {
       id="about"
       className="flex bg-[#CCBBF2]/10 py-12 md:py-20 xl:py-30"
     >
-      <div className="container flex flex-col gap-4 sm:gap-6 md:gap-8 lg:flex-row lg:gap-[120px]">
+      <div className="container flex flex-col gap-4 sm:gap-6 md:gap-8 lg:flex-row lg:gap-[80px]">
         <div 
           ref={contentRef}
           className={`fade-in-left ${contentVisible ? 'visible' : ''} w-full lg:flex-1 lg:max-w-[631px] space-y-4`}
@@ -82,38 +82,16 @@ export default function About() {
           </div>
         </div>
 
-        <div className="flex justify-center w-full lg:justify-start lg:flex-shrink-0 lg:w-auto">
-          <svg
-            ref={imageRef}
-            className={`fade-in-right ${imageVisible ? 'visible' : ''} max-w-[560px]`}
-            style={{ transitionDelay: '0.3s' }}
-            viewBox="0 0 533 518"
-            width="533"
-            height="518"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlnsXlink="http://www.w3.org/1999/xlink"
-          >
-          <path
-            d="M351.634 41.8977C444.691 83.7916 549.127 146.387 530.634 271.044C512.878 390.74 390.676 408.748 295 485.328C196.797 563.931 107.973 486.659 41.634 379.181C-6.09859 301.848 -10.9143 219.831 17.634 128.15C67.1328 -30.814 215.672 -19.3118 351.634 41.8977Z"
-            fill="url(#pattern1)"
+        <div 
+          ref={imageRef}
+          className={`fade-in-right ${imageVisible ? 'visible' : ''} w-full lg:flex-1 flex justify-center lg:justify-start items-center`}
+          style={{ transitionDelay: '0.3s' }}
+        >
+          <img
+            src="/about_accents.webp"
+            alt="Amanda - Professional pet care provider and dog trainer"
+            className="max-w-[480px] w-full h-auto rounded-lg"
           />
-          <path
-            d="M351.634 41.8977C444.691 83.7916 549.127 146.387 530.634 271.044C512.878 390.74 390.676 408.748 295 485.328C196.797 563.931 107.973 486.659 41.634 379.181C-6.09859 301.848 -10.9143 219.831 17.634 128.15C67.1328 -30.814 215.672 -19.3118 351.634 41.8977Z"
-            fill="url(#pattern1)"
-          />
-          <defs>
-            <pattern id="pattern1" width="100%" height="100%">
-              <image
-                id="image1_18_6548"
-                xlinkHref="about.webp"
-                width="100%"
-                height="100%"
-                preserveAspectRatio="xMidYMid slice"
-              />
-            </pattern>
-                      </defs>
-          </svg>
         </div>
         </div>
       </section>

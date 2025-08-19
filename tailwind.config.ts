@@ -21,9 +21,9 @@ const config = {
       center: true,
       padding: {
         '2xl': '1rem',
-        xl: '100px',
-        lg: '100px',
-        md: '100px',
+        xl: '40px',
+        lg: '40px',
+        md: '40px',
         sm: '20px',
         DEFAULT: '20px',
       },

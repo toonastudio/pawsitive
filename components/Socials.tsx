@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function Socials() {
   return (
-    <div className="flex items-center justify-center gap-9 text-white">
+    <div className="flex items-center justify-center gap-6 text-white">
       <a
         href="https://www.instagram.com/pawsitivepet.care/"
         target="_blank"
