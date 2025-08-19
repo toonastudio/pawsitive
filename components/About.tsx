@@ -13,14 +13,14 @@ export default function About() {
       id="about"
       className="flex bg-[#CCBBF2]/10 py-12 md:py-20 xl:py-30"
     >
-      <div className="container flex flex-col lg:flex-row lg:gap-[120px]">
+      <div className="container flex flex-col gap-10 lg:flex-row lg:gap-[120px]">
         <div 
           ref={contentRef}
           className={`fade-in-left ${contentVisible ? 'visible' : ''} w-full lg:flex-1 lg:max-w-[631px] space-y-4`}
         >
           <div className="relative inline-block">
             <AboutPawSVG className="absolute -left-28 -top-20 -z-[1] hidden h-48 w-48 2xl:inline" />
-            <AccentSVG className="absolute -right-20 -top-12 -z-[1] hidden h-24 w-24 lg:inline" />
+            <AccentSVG className="absolute -right-20 -top-12 -z-[1] h-24 w-24" />
             <h2>
               About us
             </h2>
@@ -31,7 +31,7 @@ export default function About() {
             <h4 className="text-[#CCBBF2]">Founder</h4>
           </div>
 
-          <div className="mt-6 flex flex-col items-start justify-start gap-3" style={{ marginTop: '24px' }}>
+          <div className="mt-6 flex flex-col items-start justify-start gap-3 sm:flex-row sm:items-center lg:flex-col lg:items-start" style={{ marginTop: '24px' }}>
             <Badge variant={'secondary'} className="px-4" style={{ paddingTop: '8px', paddingBottom: '8px' }}>
               <svg
                 width="20"
@@ -67,11 +67,7 @@ export default function About() {
           <div className="text-base/20 py-4" style={{ marginTop: '8px' }}>
             <p>
               Hi, my name is Amanda and I would love to be your pet care
-              provider!
-            </p>
-            <br />
-            <p>
-              My professional experience in pet care started in 2019 as a Pack
+              provider! My professional experience in pet care started in 2019 as a Pack
               Leader at a local doggie daycare. In 2021, I resigned from my then
               position as an Assistant Manager to pursue education in Positive
               Reinforcement Dog Training.
