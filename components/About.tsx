@@ -31,8 +31,8 @@ export default function About() {
             <h4 className="text-[#CCBBF2]">Founder</h4>
           </div>
 
-          <div className="flex flex-col items-start justify-start gap-3 lg:flex-row lg:items-center">
-            <Badge variant={'secondary'}>
+          <div className="mt-6 flex flex-col items-start justify-start gap-3 lg:flex-row lg:items-center" style={{ marginTop: '24px' }}>
+            <Badge variant={'secondary'} className="px-4" style={{ paddingTop: '8px', paddingBottom: '8px' }}>
               <svg
                 width="20"
                 height="20"
@@ -47,7 +47,7 @@ export default function About() {
               </svg>
               Professional pet care provider
             </Badge>
-            <Badge variant={'secondary'}>
+            <Badge variant={'secondary'} className="px-4" style={{ paddingTop: '8px', paddingBottom: '8px' }}>
               <svg
                 width="20"
                 height="20"
@@ -64,7 +64,7 @@ export default function About() {
             </Badge>
           </div>
 
-          <div className="text-base/20 py-4">
+          <div className="text-base/20 py-4" style={{ marginTop: '8px' }}>
             <p>
               Hi, my name is Amanda and I would love to be your pet care
               provider!

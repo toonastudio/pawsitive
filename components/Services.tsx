@@ -43,7 +43,7 @@ export default function Services() {
             >
               Services
             </h2>
-        <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div className="mt-12 grid grid-cols-1 gap-9 md:grid-cols-2">
           {services.map((service, i) => {
             const { elementRef: serviceRef, isVisible: serviceVisible } = useFadeIn({
               threshold: 0.1,

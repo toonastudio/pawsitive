@@ -99,7 +99,6 @@ const adultPackages = [
       'Enrichment activity',
       '+5 drop-in visits',
     ],
-    excludes: ['+25% off overnight pet sitting'],
     cta: 'Schedule premium training',
   },
   {
@@ -112,7 +111,6 @@ const adultPackages = [
       'Enrichment activity',
       '+5 drop-in visits',
     ],
-    excludes: ['+25% off overnight pet sitting'],
     cta: 'Schedule premium training',
   },
 ];
@@ -199,7 +197,7 @@ export default function Packages() {
                       style={{ transitionDelay: `${i * 0.1}s` }}
                     >
                       <CardHeader>
-                        <h2 className="text-lg font-bold" style={{ color: '#532BA8' }}>
+                        <h2 className="text-lg font-semibold" style={{ color: '#532BA8' }}>
                           {item.title}
                         </h2>
                       </CardHeader>
@@ -244,20 +242,21 @@ export default function Packages() {
             <TabsContent value="adult">
               <div className="flex w-full max-w-7xl flex-col justify-center gap-6 lg:flex-row">
                 {adultPackages.map((item, i) => {
-                  const { elementRef: cardRef, isVisible: cardVisible } = useFadeIn({
-                    threshold: 0.1,
-                    rootMargin: `0px 0px -${50 + i * 20}px 0px`,
-                  });
+                  // Temporarily disable fade-in for debugging
+                  // const { elementRef: cardRef, isVisible: cardVisible } = useFadeIn({
+                  //   threshold: 0.1,
+                  //   rootMargin: `0px 0px -${50 + i * 20}px 0px`,
+                  // });
 
                   return (
                     <Card 
                       key={i}
-                      ref={cardRef}
-                      className={`fade-in-up ${cardVisible ? 'visible' : ''}`}
+                      // ref={cardRef}
+                      className="fade-in-up visible"
                       style={{ transitionDelay: `${i * 0.1}s` }}
                     >
                       <CardHeader>
-                        <h2 className="text-lg font-bold" style={{ color: '#532BA8' }}>
+                        <h2 className="text-lg font-semibold" style={{ color: '#532BA8' }}>
                           {item.title}
                         </h2>
                       </CardHeader>
