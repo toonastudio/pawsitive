@@ -51,7 +51,7 @@ export default function Landing() {
          >
            <div className="relative">
              <HeroPawSVG className="absolute -inset-x-6 bottom-0 -z-[1] lg:-inset-x-12" />
-             <Image src={HeroDogIMG} alt="" priority quality={100} />
+             <Image src={HeroDogIMG} alt="" priority quality={100} className="lg:scale-100 xl:scale-110 2xl:scale-120" />
            </div>
          </div>
       </div>

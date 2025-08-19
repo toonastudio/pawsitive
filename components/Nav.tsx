@@ -7,12 +7,11 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
-import { MenuIcon } from 'lucide-react';
 import Link from 'next/link';
 import LogoSVG from 'public/logo.svg';
 import { Button } from './ui/button';
-import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
 import { useFadeIn } from '@/lib/hooks/useFadeIn';
+import { useState } from 'react';
 
 const navigationMenuItems = [
   {
@@ -39,11 +38,20 @@ const navigationMenuItems = [
 
 export function Nav() {
   const { elementRef: navRef, isVisible: navVisible } = useFadeIn({ threshold: 0.1 });
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
 
   return (
     <div 
       ref={navRef}
-      className={`fade-in ${navVisible ? 'visible' : ''} flex h-[100px] items-center px-6 lg:px-10`}
+      className={`fade-in ${navVisible ? 'visible' : ''} flex h-[100px] items-center px-6 lg:px-10 relative z-50`}
     >
       <Link href="/">
         <LogoSVG className="h-12" />
@@ -75,36 +83,85 @@ export function Nav() {
         </a>
       </Button>
 
-      <Sheet>
-        <SheetTrigger className="ml-auto lg:hidden">
-          <MenuIcon />
-          <span className="sr-only">Menu</span>
-        </SheetTrigger>
-        <SheetContent
-          className="flex h-screen w-screen items-center justify-center"
-          side={'top'}
-        >
-          <div className="flex h-full flex-col justify-center gap-16 text-center text-2xl">
-            {navigationMenuItems.map((item) => (
-              <Link href={item.href} key={item.label}>
-                <SheetTrigger>
-                  <span>{item.label}</span>
-                </SheetTrigger>
-              </Link>
-            ))}
+      {/* Animated Burger Menu Button */}
+      <button
+        className="ml-auto lg:hidden relative w-8 h-8 flex flex-col justify-center items-center"
+        onClick={toggleMenu}
+        aria-label="Toggle menu"
+        aria-expanded={isMenuOpen}
+      >
+        {/* Burger Lines */}
+        <span 
+          className={`w-6 h-0.5 bg-foreground rounded-full transition-all duration-300 ease-in-out origin-center ${
+            isMenuOpen ? 'rotate-45 translate-y-2' : ''
+          }`}
+        />
+        <span 
+          className={`w-6 h-0.5 bg-foreground rounded-full transition-all duration-300 ease-in-out mt-1.5 origin-center ${
+            isMenuOpen ? 'opacity-0 scale-x-0' : ''
+          }`}
+        />
+        <span 
+          className={`w-6 h-0.5 bg-foreground rounded-full transition-all duration-300 ease-in-out mt-1.5 origin-center ${
+            isMenuOpen ? '-rotate-45 -translate-y-2' : ''
+          }`}
+        />
+      </button>
 
-            <Button asChild>
-              <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSfZjeY3eyTWUFIspFDHYJ-8zMeKA09ms8oJTrhtAPoiyf4kaQ/viewform"
-                target="_blank"
-                rel="noreferrer"
+      {/* Mobile Menu Overlay */}
+      {isMenuOpen && (
+        <div 
+          className="fixed left-0 right-0 top-[100px] bottom-0 z-40 border-t border-border animate-in fade-in-0 duration-500" 
+          style={{ 
+            backgroundColor: '#F8F8FE', 
+            position: 'fixed', 
+            left: '0', 
+            right: '0', 
+            top: '100px', 
+            bottom: '0', 
+            zIndex: '40',
+            minHeight: '100vh',
+            width: '100vw'
+          }}
+        >
+          <div className="flex h-full w-full items-start justify-center pt-8">
+            <div className="flex flex-col items-center gap-12 text-center text-2xl">
+              {navigationMenuItems.map((item, index) => (
+                <Link 
+                  href={item.href} 
+                  key={item.label}
+                  onClick={closeMenu}
+                  className="transition-all duration-500 hover:text-primary py-2"
+                  style={{
+                    opacity: 0,
+                    animation: `fadeIn 0.5s ease-in-out ${(index + 1) * 0.2}s forwards`
+                  }}
+                >
+                  <span>{item.label}</span>
+                </Link>
+              ))}
+
+              <Button 
+                asChild 
+                className="mt-4 transition-all duration-500"
+                style={{
+                  opacity: 0,
+                  animation: `fadeIn 0.5s ease-in-out ${(navigationMenuItems.length + 1) * 0.2}s forwards`
+                }}
               >
-                Book an appointment
-              </a>
-            </Button>
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSfZjeY3eyTWUFIms8oJTrhtAPoiyf4kaQ/viewform"
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={closeMenu}
+                >
+                  Book an appointment
+                </a>
+              </Button>
+            </div>
           </div>
-        </SheetContent>
-      </Sheet>
+        </div>
+      )}
     </div>
   );
 }

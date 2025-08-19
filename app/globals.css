@@ -95,7 +95,7 @@
         /* Large screens and above */
         @media (min-width: 1024px) {
           h1 {
-            font-size: 64px;
+            font-size: 60px;
           }
         }
 
@@ -299,5 +299,17 @@
     outline: none !important;
     border: none !important;
     box-shadow: none !important;
+  }
+
+  /* FadeIn animation for mobile menu items */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
