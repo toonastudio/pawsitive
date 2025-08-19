@@ -3,6 +3,13 @@
 @tailwind utilities;
 
 @layer base {
+  /* Prevent horizontal scrolling on mobile */
+  html, body {
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+  }
+
   :root {
     --background: 240 75% 98%;
     --foreground: 210, 10%, 20%;
@@ -299,6 +306,18 @@
     outline: none !important;
     border: none !important;
     box-shadow: none !important;
+  }
+
+  /* Mobile layout constraints */
+  * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Ensure main content doesn't overflow */
+  main {
+    overflow-x: hidden;
+    width: 100%;
   }
 
   /* FadeIn animation for mobile menu items */
