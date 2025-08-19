@@ -134,7 +134,7 @@ export function Nav() {
                   className="transition-all duration-500 hover:text-primary py-2"
                   style={{
                     opacity: 0,
-                    animation: `fadeIn 0.5s ease-in-out ${(index + 1) * 0.2}s forwards`
+                    animation: `fadeIn 0.4s ease-in-out ${(index + 1) * 0.1}s forwards`
                   }}
                 >
                   <span>{item.label}</span>
@@ -146,7 +146,7 @@ export function Nav() {
                 className="mt-4 transition-all duration-500"
                 style={{
                   opacity: 0,
-                  animation: `fadeIn 0.5s ease-in-out ${(navigationMenuItems.length + 1) * 0.2}s forwards`
+                  animation: `fadeIn 0.4s ease-in-out ${(navigationMenuItems.length + 1) * 0.1}s forwards`
                 }}
               >
                 <a
