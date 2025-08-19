@@ -1,6 +1,6 @@
 'use client';
 import { submitContactFormAction } from '@/lib/actions';
-import Flower2SVG from '@/public/flower-2.svg';
+import Flower2SVG from '@/public/flower-pink_outline.svg';
 import PawOutlineSVG from '@/public/paw-outline.svg';
 import { Check, Loader2, X } from 'lucide-react';
 import { useFormStatus } from 'react-dom';

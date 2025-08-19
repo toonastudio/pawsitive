@@ -1,7 +1,7 @@
 'use client';
 import FlowerSVG from 'public/flower.svg';
-import HeartSVG from 'public/heart.svg';
-import StarSVG from 'public/star.svg';
+import HeartSVG from 'public/heart_purple.svg';
+import StarSVG from 'public/star_purple.svg';
 import { useFadeIn } from '@/lib/hooks/useFadeIn';
 
 const features = [
