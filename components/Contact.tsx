@@ -41,9 +41,9 @@ export default function Contact() {
       id="contact"
       className="relative overflow-clip bg-grape py-12 text-monochrome-50 md:py-20"
     >
-      <PawOutlineSVG className="pointer-events-none absolute left-10 top-20 hidden h-[400px] w-[400px] lg:inline" />
-      <PawOutlineSVG className="pointer-events-none absolute -bottom-72 right-0 hidden h-[680px]  w-[680px] -rotate-45 lg:inline" />
-      <Flower2SVG className="pointer-events-none absolute right-16 top-16 hidden h-[125px] w-[125px] lg:inline" />
+      <PawOutlineSVG className="pointer-events-none absolute left-10 top-20 h-[200px] w-[200px] md:h-[300px] md:w-[300px] lg:h-[400px] lg:w-[400px]" />
+      <PawOutlineSVG className="pointer-events-none absolute -bottom-72 right-0 h-[300px] w-[300px] md:h-[500px] md:w-[500px] lg:h-[680px] lg:w-[680px] -rotate-45" />
+      <Flower2SVG className="pointer-events-none absolute right-16 top-16 h-[75px] w-[75px] md:h-[100px] md:w-[100px] lg:h-[125px] lg:w-[125px]" />
       <div className="container flex flex-col items-center">
         <div 
           ref={titleRef}

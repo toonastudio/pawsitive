@@ -94,7 +94,7 @@ export default function Training() {
               Pawsitive reinforcement dog training
             </h2>
             <p>
-              Choose between 3 different high quality & affordable dog training
+              Choose between <span className="text-[#804DEC]">3 different high quality & affordable</span> dog training
               options. Find the training package that best suits the needs of
               you and your furry companion.
             </p>

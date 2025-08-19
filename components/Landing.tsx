@@ -22,7 +22,7 @@ export default function Landing() {
                       <h1 className="mt-6 text-pretty lg:mt-0">
               Caring for your pet like family
             </h1>
-          <p className="text-lg">
+          <p className="text-base lg:text-lg">
             We treat your furry friend like one of our own, providing
             compassionate and attentive care. Enjoy hassle-free pet care with
             our convenient services and experienced professionals.
