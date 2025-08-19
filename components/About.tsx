@@ -13,7 +13,7 @@ export default function About() {
       id="about"
       className="flex bg-[#CCBBF2]/10 py-12 md:py-20 xl:py-30"
     >
-      <div className="container flex flex-col gap-10 lg:flex-row lg:gap-[120px]">
+      <div className="container flex flex-col gap-4 sm:gap-6 md:gap-8 lg:flex-row lg:gap-[120px]">
         <div 
           ref={contentRef}
           className={`fade-in-left ${contentVisible ? 'visible' : ''} w-full lg:flex-1 lg:max-w-[631px] space-y-4`}
