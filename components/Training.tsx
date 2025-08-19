@@ -7,7 +7,7 @@ export default function Training() {
 
   return (
     <>
-      <section className=" flex bg-[#CCBBF2]/10 px-5 py-20">
+      <section className=" flex bg-[#CCBBF2]/10 md:px-10 py-20">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-6 lg:flex-row">
           <svg
             ref={imageRef}
@@ -94,7 +94,7 @@ export default function Training() {
               Pawsitive reinforcement dog training
             </h2>
             <p>
-              Choose between <span className="text-[#804DEC]">3 different high quality & affordable</span> dog training
+              Choose between <span className="text-[#804DEC] font-medium">3 different high quality & affordable</span> dog training
               options. Find the training package that best suits the needs of
               you and your furry companion.
             </p>

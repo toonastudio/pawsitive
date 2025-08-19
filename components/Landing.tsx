@@ -12,7 +12,7 @@ export default function Landing() {
   const { elementRef: imageRef, isVisible: imageVisible } = useFadeIn({ threshold: 0.2 });
 
   return (
-    <section id="home" className="relative overflow-clip">
+    <section id="home" className="relative overflow-clip md:px-10">
       <div className="container flex flex-col-reverse items-center lg:block">
         <div
           ref={contentRef}

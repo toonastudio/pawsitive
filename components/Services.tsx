@@ -36,7 +36,7 @@ export default function Services() {
   const { elementRef: addonsRef, isVisible: addonsVisible } = useFadeIn();
 
   return (
-    <section ref={sectionRef} id="services" className="flex py-20 md:py-20 xl:py-30">
+    <section ref={sectionRef} id="services" className="flex md:px-10 py-20 md:py-20 xl:py-30">
       <div className="container flex w-full flex-col">
         <h2
           ref={titleRef}

@@ -158,7 +158,7 @@ export default function Packages() {
 
   return (
     <>
-      <section id="packages" className="bg-[#f6f6fe] py-20 md:py-20 xl:py-30">
+      <section id="packages" className="bg-[#f6f6fe] md:px-10 py-20 md:py-20 xl:py-30">
         <div className="container flex flex-col items-center">
           <div 
             ref={titleRef}
@@ -193,7 +193,7 @@ export default function Packages() {
                     <Card 
                       key={i}
                       ref={cardRef}
-                      className={`fade-in-up ${cardVisible ? 'visible' : ''} max-w-[400px]`}
+                      className={`fade-in-up ${cardVisible ? 'visible' : ''} max-w-[400px] shadow-none border-[#B7C4F2]/50`}
                       style={{ transitionDelay: `${i * 0.1}s` }}
                     >
                       <CardHeader>
@@ -252,7 +252,7 @@ export default function Packages() {
                     <Card 
                       key={i}
                       // ref={cardRef}
-                      className="fade-in-up visible max-w-[400px]"
+                      className="fade-in-up visible max-w-[400px] shadow-none border-[#B7C4F2]/50"
                       style={{ transitionDelay: `${i * 0.1}s` }}
                     >
                       <CardHeader>
