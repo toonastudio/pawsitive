@@ -16,7 +16,7 @@ export default function About() {
       <div className="container flex flex-col lg:flex-row lg:gap-[120px]">
         <div 
           ref={contentRef}
-          className={`fade-in-left ${contentVisible ? 'visible' : ''} max-w-[631px] space-y-4`}
+          className={`fade-in-left ${contentVisible ? 'visible' : ''} w-full lg:flex-1 lg:max-w-[631px] space-y-4`}
         >
           <div className="relative inline-block">
             <AboutPawSVG className="absolute -left-28 -top-20 -z-[1] hidden h-48 w-48 2xl:inline" />
@@ -31,7 +31,7 @@ export default function About() {
             <h4 className="text-[#CCBBF2]">Founder</h4>
           </div>
 
-          <div className="mt-6 flex flex-col items-start justify-start gap-3 lg:flex-row lg:items-center" style={{ marginTop: '24px' }}>
+          <div className="mt-6 flex flex-col items-start justify-start gap-3" style={{ marginTop: '24px' }}>
             <Badge variant={'secondary'} className="px-4" style={{ paddingTop: '8px', paddingBottom: '8px' }}>
               <svg
                 width="20"
@@ -86,15 +86,18 @@ export default function About() {
           </div>
         </div>
 
-        <svg
-          ref={imageRef}
-          className={`fade-in-right ${imageVisible ? 'visible' : ''}`}
-          style={{ transitionDelay: '0.3s' }}
-          viewBox="0 0 533 518"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlnsXlink="http://www.w3.org/1999/xlink"
-        >
+        <div className="flex justify-center w-full lg:justify-start lg:flex-shrink-0 lg:w-auto">
+          <svg
+            ref={imageRef}
+            className={`fade-in-right ${imageVisible ? 'visible' : ''} max-w-[560px]`}
+            style={{ transitionDelay: '0.3s' }}
+            viewBox="0 0 533 518"
+            width="533"
+            height="518"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+          >
           <path
             d="M351.634 41.8977C444.691 83.7916 549.127 146.387 530.634 271.044C512.878 390.74 390.676 408.748 295 485.328C196.797 563.931 107.973 486.659 41.634 379.181C-6.09859 301.848 -10.9143 219.831 17.634 128.15C67.1328 -30.814 215.672 -19.3118 351.634 41.8977Z"
             fill="url(#pattern1)"
@@ -113,9 +116,10 @@ export default function About() {
                 preserveAspectRatio="xMidYMid slice"
               />
             </pattern>
-          </defs>
-        </svg>
-      </div>
-    </section>
+                      </defs>
+          </svg>
+        </div>
+        </div>
+      </section>
   );
 }

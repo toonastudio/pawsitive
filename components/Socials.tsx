@@ -20,17 +20,17 @@ export default function Socials() {
         rel="noopener noreferrer"
         className="transition-all duration-300 hover:scale-110 hover:-rotate-12 hover:opacity-80"
       >
-        <Image src="/icon_fb.svg" alt="Facebook" width={24} height={24} />
+        <Image src="/icon_fb.svg" alt="Facebook" width={24} height={24} className="w-6 h-6 min-w-6 min-h-6 max-w-6 max-h-6" />
         <span className="sr-only">facebook</span>
       </a>
 
       <a href="tel:+1-585-210-2385" className="transition-all duration-300 hover:scale-110 hover:-rotate-12 hover:opacity-80">
-        <Image src="/icon_phone.svg" alt="Phone" width={24} height={24} />
+        <Image src="/icon_phone.svg" alt="Phone" width={24} height={24} className="w-6 h-6 min-w-6 min-h-6 max-w-6 max-h-6" />
         <span className="sr-only">phone</span>
       </a>
 
       <a href="mailto:info.pawsitivepetcare@gmail.com" className="transition-all duration-300 hover:scale-110 hover:-rotate-12 hover:opacity-80">
-        <Image src="/icon_mail.svg" alt="Email" width={24} height={24} />
+        <Image src="/icon_mail.svg" alt="Email" width={24} height={24} className="w-6 h-6 min-w-6 min-h-6 max-w-6 max-h-6" />
         <span className="sr-only">e-mail</span>
       </a>
     </div>
