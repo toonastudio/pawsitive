@@ -32,11 +32,6 @@ export default function Features() {
     <section ref={sectionRef} id="features" className="flex bg-primary/10 md:px-10 py-20">
       <div className="container flex flex-col items-center gap-10 lg:gap-[100px] lg:flex-row">
         {features.map((feature, i) => {
-          const { elementRef: featureRef, isVisible: featureVisible } = useFadeIn({
-            threshold: 0.1,
-            rootMargin: `0px 0px -${50 + i * 20}px 0px`,
-          });
-
           // Different animation classes for each feature
           const animationClasses = [
             'fade-in-left',    // First feature slides in from left
@@ -47,9 +42,8 @@ export default function Features() {
           return (
             <div
               key={i}
-              ref={featureRef}
-              className={`${animationClasses[i]} ${featureVisible ? 'visible' : ''} flex max-w-[394px] flex-col items-center text-center`}
-              style={{ transitionDelay: `${i * 0.3}s` }}
+              className={`${animationClasses[i]} ${sectionVisible ? 'visible' : ''} flex max-w-[394px] flex-col items-center text-center`}
+              style={{ transitionDelay: `${i * 0.15}s` }}
             >
               {feature.illustration}
               <h3 className="mt-2">{feature.title}</h3>

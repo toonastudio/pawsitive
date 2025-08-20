@@ -30,9 +30,7 @@ export default function Header() {
   return (
     <header 
       id="header" 
-      className={`fixed top-0 left-0 right-0 z-50 w-full bg-background/95 backdrop-blur-sm transition-all duration-300 ${
-        hasScrolled ? 'border-b border-[#B7C4F2]/50' : ''
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 w-full bg-background/95 backdrop-blur-sm transition-all duration-300"
     >
       <Nav />
     </header>
