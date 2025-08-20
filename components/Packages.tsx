@@ -3,11 +3,12 @@
 import { Tabs } from '@radix-ui/react-tabs';
 import Link from 'next/link';
 import CheckSVG from 'public/check.svg';
-import DoubleStarSVG from 'public/double-star.svg';
+import DoubleStarSVG from 'public/double-star-pink.svg';
 import { Button } from './ui/button';
 import { Card, CardContent, CardFooter, CardHeader } from './ui/card';
 import { Separator } from './ui/separator';
 import { TabsContent, TabsList, TabsTrigger } from './ui/tabs';
+import { useFadeIn } from '@/lib/hooks/useFadeIn';
 
 const puppyTrainingOptions = [
   {
@@ -48,7 +49,7 @@ const puppyTrainingOptions = [
 
 const puppyPackages = [
   {
-    title: 'TRADITIONAL TRAINING PACKAGE',
+    title: 'Traditional Training Package',
     price: '$220',
     duration: '/6 sessions',
     includes: [
@@ -59,7 +60,7 @@ const puppyPackages = [
     cta: 'Schedule traditional training',
   },
   {
-    title: 'PREMIUM TRAINING PACKAGE',
+    title: 'Premium Training Package',
     price: '$335',
     duration: '/6 sessions',
     includes: [
@@ -72,7 +73,7 @@ const puppyPackages = [
     cta: 'Schedule premium training',
   },
   {
-    title: 'ULTIMATE TRAINING PACKAGE',
+    title: 'Ultimate Training Package',
     price: '$500',
     duration: '/8 sessions',
     includes: [
@@ -89,7 +90,7 @@ const puppyPackages = [
 
 const adultPackages = [
   {
-    title: 'TRAINING PACKAGE',
+    title: 'Training Package',
     price: '$155',
     duration: '/4 sessions',
     includes: [
@@ -98,11 +99,10 @@ const adultPackages = [
       'Enrichment activity',
       '+5 drop-in visits',
     ],
-    excludes: ['+25% off overnight pet sitting'],
     cta: 'Schedule premium training',
   },
   {
-    title: 'TRAINING PACKAGE PLUS',
+    title: 'Training Package Plus',
     price: '$250',
     duration: '/5 sessions',
     includes: [
@@ -111,7 +111,6 @@ const adultPackages = [
       'Enrichment activity',
       '+5 drop-in visits',
     ],
-    excludes: ['+25% off overnight pet sitting'],
     cta: 'Schedule premium training',
   },
 ];
@@ -154,21 +153,29 @@ const Breadcrumb = ({ selected }: { selected: boolean }) => {
 };
 
 export default function Packages() {
+  const { elementRef: titleRef, isVisible: titleVisible } = useFadeIn();
+  const { elementRef: tabsRef, isVisible: tabsVisible } = useFadeIn({ threshold: 0.2 });
+
   return (
     <>
-      <section id="packages" className="bg-[#f6f6fe] py-12 md:py-20 xl:py-30">
+      <section id="packages" className="bg-[#f6f6fe] md:px-10 py-20 md:py-20 xl:py-30">
         <div className="container flex flex-col items-center">
-          <div className="relative">
-            <DoubleStarSVG className="absolute -right-20 -top-3 h-16 w-16 text-primary" />
+          <div 
+            ref={titleRef}
+            className={`fade-in-up ${titleVisible ? 'visible' : ''} relative`}
+          >
+            <DoubleStarSVG className="absolute -right-20 -top-3 h-16 w-16 text-grape" />
 
-            <h1 className="text-center text-3xl font-semibold md:text-4xl lg:text-5xl">
+            <h2 className="text-center">
               Prices & <br className="lg:hidden" />
               packages
-            </h1>
+            </h2>
           </div>
           <Tabs
+            ref={tabsRef}
             defaultValue="puppy"
-            className="flex flex-col items-center lg:mt-12 lg:w-auto"
+            className={`fade-in-up ${tabsVisible ? 'visible' : ''} flex flex-col items-center lg:mt-12 lg:w-auto`}
+            style={{ transitionDelay: '0.2s' }}
           >
             <TabsList className="mt-5">
               <TabsTrigger value="puppy">Puppy</TabsTrigger>
@@ -176,89 +183,114 @@ export default function Packages() {
             </TabsList>
             <TabsContent value="puppy">
               <div className="flex w-full max-w-7xl flex-col justify-center gap-6 lg:flex-row">
-                {puppyPackages.map((item, i) => (
-                  <Card key={i}>
-                    <CardHeader>
-                      <h2 className="text-lg font-bold text-primary">
-                        {item.title}
-                      </h2>
-                    </CardHeader>
+                {puppyPackages.map((item, i) => {
+                  const { elementRef: cardRef, isVisible: cardVisible } = useFadeIn({
+                    threshold: 0.1,
+                    rootMargin: `0px 0px -${50 + i * 20}px 0px`,
+                  });
 
-                    <CardContent>
-                      <div>
-                        <strong className="text-2xl font-extrabold">
-                          {item.price}
-                        </strong>
-                        <span className="text-opacity-80">{item.duration}</span>
-                      </div>
+                  return (
+                    <Card 
+                      key={i}
+                      ref={cardRef}
+                      className={`fade-in-up ${cardVisible ? 'visible' : ''} max-w-[400px] shadow-none border-[#B7C4F2]/50`}
+                      style={{ transitionDelay: `${i * 0.1}s` }}
+                    >
+                      <CardHeader>
+                        <h2 className="text-lg font-semibold" style={{ color: '#532BA8' }}>
+                          {item.title}
+                        </h2>
+                      </CardHeader>
 
-                      <Separator className="my-4" />
+                      <CardContent>
+                        <div>
+                          <strong className="text-2xl font-extrabold">
+                            {item.price}
+                          </strong>
+                          <span style={{ color: '#6A6F7C' }}>{item.duration}</span>
+                        </div>
 
-                      <div>
-                        <ul className="list-inside space-y-3">
-                          {item.includes.map((include, i) => (
-                            <li key={i} className="flex items-center">
-                              {' '}
-                              <CheckSVG className="mr-2 h-5 w-5 text-primary" />{' '}
-                              {include}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </CardContent>
+                        <Separator className="my-4" />
 
-                    <CardFooter className="mt-4 justify-center">
-                      <a
-                        href="https://docs.google.com/forms/d/e/1FAIpQLSfZjeY3eyTWUFIspFDHYJ-8zMeKA09ms8oJTrhtAPoiyf4kaQ/viewform"
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        <Button variant="secondary">{item.cta}</Button>
-                      </a>
-                    </CardFooter>
-                  </Card>
-                ))}
+                        <div>
+                          <ul className="list-inside space-y-3">
+                            {item.includes.map((include, i) => (
+                              <li key={i} className="flex items-center">
+                                {' '}
+                                <CheckSVG className="mr-2 h-5 w-5 text-grape" />{' '}
+                                {include}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </CardContent>
+
+                      <CardFooter className="mt-4 justify-center">
+                        <a
+                          href="https://docs.google.com/forms/d/e/1FAIpQLSfZjeY3eyTWUFIspFDHYJ-8zMeKA09ms8oJTrhtAPoiyf4kaQ/viewform"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <Button variant="secondary">{item.cta}</Button>
+                        </a>
+                      </CardFooter>
+                    </Card>
+                  );
+                })}
               </div>
             </TabsContent>
             <TabsContent value="adult">
               <div className="flex w-full max-w-7xl flex-col justify-center gap-6 lg:flex-row">
-                {adultPackages.map((item, i) => (
-                  <Card key={i}>
-                    <CardHeader>
-                      <h2 className="text-lg font-bold text-primary">
-                        {item.title}
-                      </h2>
-                    </CardHeader>
+                {adultPackages.map((item, i) => {
+                  // Temporarily disable fade-in for debugging
+                  // const { elementRef: cardRef, isVisible: cardVisible } = useFadeIn({
+                  //   threshold: 0.1,
+                  //   rootMargin: `0px 0px -${50 + i * 20}px 0px`,
+                  // });
 
-                    <CardContent>
-                      <div>
-                        <strong className="text-2xl font-extrabold">
-                          {item.price}
-                        </strong>
-                        <span className="text-opacity-80">{item.duration}</span>
-                      </div>
+                  return (
+                    <Card 
+                      key={i}
+                      // ref={cardRef}
+                      className="fade-in-up visible max-w-[400px] shadow-none border-[#B7C4F2]/50"
+                      style={{ transitionDelay: `${i * 0.1}s` }}
+                    >
+                      <CardHeader>
+                        <h2 className="text-lg font-semibold" style={{ color: '#532BA8' }}>
+                          {item.title}
+                        </h2>
+                      </CardHeader>
 
-                      <Separator className="my-4" />
+                      <CardContent>
+                        <div>
+                          <strong className="text-2xl font-extrabold">
+                            {item.price}
+                          </strong>
+                          <span style={{ color: '#6A6F7C' }}>{item.duration}</span>
+                        </div>
 
-                      <div>
-                        <ul className="list-inside space-y-3">
-                          {item.includes.map((include, i) => (
-                            <li key={i} className="flex items-center">
-                              <CheckSVG className="mr-2 h-5 w-5 text-primary" />
-                              {include}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </CardContent>
+                        <Separator className="my-4" />
 
-                    <CardFooter className="mt-4 justify-center">
-                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfZjeY3eyTWUFIspFDHYJ-8zMeKA09ms8oJTrhtAPoiyf4kaQ/viewform">
-                        <Button variant="secondary">{item.cta}</Button>
-                      </a>
-                    </CardFooter>
-                  </Card>
-                ))}
+                        <div>
+                          <ul className="list-inside space-y-3">
+                            {item.includes.map((include, i) => (
+                              <li key={i} className="flex items-center">
+                                <CheckSVG className="mr-2 h-5 w-5 text-grape" />
+                                {include}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </CardContent>
+
+                      <CardFooter className="mt-4 justify-center">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfZjeY3eyTWUFIspFDHYJ-8zMeKA09ms8oJTrhtAPoiyf4kaQ/viewform">
+                          <Button variant="secondary">{item.cta}</Button>
+                        </a>
+                      </CardFooter>
+                    </Card>
+                  );
+                })}
               </div>
             </TabsContent>
           </Tabs>

@@ -1,6 +1,6 @@
 'use client';
 import { submitContactFormAction } from '@/lib/actions';
-import Flower2SVG from '@/public/flower-2.svg';
+import Flower2SVG from '@/public/flower-pink_outline.svg';
 import PawOutlineSVG from '@/public/paw-outline.svg';
 import { Check, Loader2, X } from 'lucide-react';
 import { useFormStatus } from 'react-dom';
@@ -9,7 +9,13 @@ import Socials from './Socials';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
+import { useFadeIn } from '@/lib/hooks/useFadeIn';
+
 export default function Contact() {
+  const { elementRef: titleRef, isVisible: titleVisible } = useFadeIn();
+  const { elementRef: formRef, isVisible: formVisible } = useFadeIn({ threshold: 0.2 });
+  const { elementRef: socialsRef, isVisible: socialsVisible } = useFadeIn({ threshold: 0.3 });
+
   const handleSubmit = async (formData: FormData) => {
     return submitContactFormAction(formData).then(({ success }) => {
       if (success) {
@@ -33,20 +39,27 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative overflow-clip bg-grape py-12 text-monochrome-50 md:py-20"
+      className="relative overflow-clip bg-grape md:px-10 py-20 text-monochrome-50 md:py-20 scroll-mt-24"
     >
-      <PawOutlineSVG className="pointer-events-none absolute left-10 top-20 hidden h-[400px] w-[400px] lg:inline" />
-      <PawOutlineSVG className="pointer-events-none absolute -bottom-72 right-0 hidden h-[680px]  w-[680px] -rotate-45 lg:inline" />
-      <Flower2SVG className="pointer-events-none absolute right-16 top-16 hidden h-[125px] w-[125px] lg:inline" />
+      <PawOutlineSVG className="pointer-events-none absolute -left-5 top-20 md:left-10 h-[300px] w-[300px] lg:h-[400px] lg:w-[400px]" />
+      <PawOutlineSVG className="pointer-events-none absolute -bottom-56 -right-24 md:-bottom-48 md:-right-5 lg:-bottom-72 h-[500px] w-[500px] lg:h-[680px] lg:w-[680px] -rotate-45" />
+      <Flower2SVG className="pointer-events-none absolute right-2 top-16 md:right-16 h-[100px] w-[100px] lg:h-[125px] lg:w-[125px] opacity-50" />
       <div className="container flex flex-col items-center">
-        <h1 className="mb-4 text-3xl font-semibold md:text-4xl lg:text-5xl">
-          Any questions?
-        </h1>
-        <p>Contact Pawsitive Pet Care today.</p>
+        <div 
+          ref={titleRef}
+          className={`fade-in-up ${titleVisible ? 'visible' : ''} text-center`}
+        >
+                      <h2 className="mb-4">
+              Any questions?
+            </h2>
+          <p>Contact Pawsitive Pet Care today.</p>
+        </div>
 
         <form
+          ref={formRef}
           action={handleSubmit}
-          className="z-10 mt-9 w-full max-w-[474px] space-y-8"
+          className={`fade-in-up ${formVisible ? 'visible' : ''} z-10 mt-9 w-full max-w-[474px] space-y-6`}
+          style={{ transitionDelay: '0.2s' }}
         >
           <Input
             name="name"
@@ -81,7 +94,11 @@ export default function Contact() {
 
           <SubmitButton />
         </form>
-        <div className="z-10 mt-9">
+        <div 
+          ref={socialsRef}
+          className={`fade-in-up ${socialsVisible ? 'visible' : ''} z-10 mt-9`}
+          style={{ transitionDelay: '0.4s' }}
+        >
           <Socials />
         </div>
       </div>

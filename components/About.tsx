@@ -2,30 +2,37 @@
 import AboutPawSVG from '@/public/about-paw.svg';
 import AccentSVG from '@/public/accent-4.svg';
 import { Badge } from './ui/badge';
+import { useFadeIn } from '@/lib/hooks/useFadeIn';
 
 export default function About() {
+  const { elementRef: contentRef, isVisible: contentVisible } = useFadeIn();
+  const { elementRef: imageRef, isVisible: imageVisible } = useFadeIn({ threshold: 0.3 });
+
   return (
     <section
       id="about"
-      className="flex bg-[#CCBBF2]/10 py-12 md:py-20 xl:py-30"
+      className="flex bg-[#CCBBF2]/10 md:px-10 py-20 md:py-20 xl:py-30"
     >
-      <div className="container flex flex-col lg:flex-row lg:gap-[120px]">
-        <div className="max-w-[631px] space-y-4">
+      <div className="container flex flex-col gap-4 sm:gap-6 md:gap-8 lg:flex-row lg:gap-[80px]">
+        <div 
+          ref={contentRef}
+          className={`fade-in-left ${contentVisible ? 'visible' : ''} w-full lg:flex-1 lg:max-w-[631px] space-y-4`}
+        >
           <div className="relative inline-block">
             <AboutPawSVG className="absolute -left-28 -top-20 -z-[1] hidden h-48 w-48 2xl:inline" />
-            <AccentSVG className="absolute -right-20 -top-12 -z-[1] hidden h-24 w-24 lg:inline" />
-            <h1 className="text-3xl font-semibold md:text-4xl lg:text-5xl">
+            <AccentSVG className="absolute -right-20 -top-12 -z-[1] h-24 w-24" />
+            <h2>
               About us
-            </h1>
+            </h2>
           </div>
 
-          <div className="flex h-6 items-center gap-1 text-2xl font-semibold">
-            <h2 className="text-grape">Amanda</h2>
-            <span className="text-[#CCBBF2]">Founder</span>
+          <div className="flex h-6 items-center gap-2">
+            <h4 className="text-grape">Amanda</h4>
+            <h4 className="text-[#CCBBF2]">Founder</h4>
           </div>
 
-          <div className="flex flex-col items-start justify-start gap-3 lg:flex-row lg:items-center">
-            <Badge variant={'secondary'}>
+          <div className="mt-6 flex flex-col items-start justify-start gap-3 sm:flex-row sm:items-center lg:flex-col lg:items-start" style={{ marginTop: '24px' }}>
+            <Badge variant={'secondary'} className="px-4" style={{ paddingTop: '8px', paddingBottom: '8px' }}>
               <svg
                 width="20"
                 height="20"
@@ -40,7 +47,7 @@ export default function About() {
               </svg>
               Professional pet care provider
             </Badge>
-            <Badge variant={'secondary'}>
+            <Badge variant={'secondary'} className="px-4" style={{ paddingTop: '8px', paddingBottom: '8px' }}>
               <svg
                 width="20"
                 height="20"
@@ -57,14 +64,10 @@ export default function About() {
             </Badge>
           </div>
 
-          <div className="text-base/20 py-4">
+          <div className="text-base/20 py-4" style={{ marginTop: '8px' }}>
             <p>
               Hi, my name is Amanda and I would love to be your pet care
-              provider!
-            </p>
-            <br />
-            <p>
-              My professional experience in pet care started in 2019 as a Pack
+              provider! My professional experience in pet care started in 2019 as a Pack
               Leader at a local doggie daycare. In 2021, I resigned from my then
               position as an Assistant Manager to pursue education in Positive
               Reinforcement Dog Training.
@@ -79,33 +82,18 @@ export default function About() {
           </div>
         </div>
 
-        <svg
-          viewBox="0 0 533 518"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlnsXlink="http://www.w3.org/1999/xlink"
+        <div 
+          ref={imageRef}
+          className={`fade-in-right ${imageVisible ? 'visible' : ''} w-full lg:flex-1 flex justify-center lg:justify-start items-center`}
+          style={{ transitionDelay: '0.3s' }}
         >
-          <path
-            d="M351.634 41.8977C444.691 83.7916 549.127 146.387 530.634 271.044C512.878 390.74 390.676 408.748 295 485.328C196.797 563.931 107.973 486.659 41.634 379.181C-6.09859 301.848 -10.9143 219.831 17.634 128.15C67.1328 -30.814 215.672 -19.3118 351.634 41.8977Z"
-            fill="url(#pattern1)"
+          <img
+            src="/about_accents.webp"
+            alt="Amanda - Professional pet care provider and dog trainer"
+            className="max-w-[480px] w-full h-auto rounded-lg"
           />
-          <path
-            d="M351.634 41.8977C444.691 83.7916 549.127 146.387 530.634 271.044C512.878 390.74 390.676 408.748 295 485.328C196.797 563.931 107.973 486.659 41.634 379.181C-6.09859 301.848 -10.9143 219.831 17.634 128.15C67.1328 -30.814 215.672 -19.3118 351.634 41.8977Z"
-            fill="url(#pattern1)"
-          />
-          <defs>
-            <pattern id="pattern1" width="100%" height="100%">
-              <image
-                id="image1_18_6548"
-                xlinkHref="about.webp"
-                width="100%"
-                height="100%"
-                preserveAspectRatio="xMidYMid slice"
-              />
-            </pattern>
-          </defs>
-        </svg>
-      </div>
-    </section>
+        </div>
+        </div>
+      </section>
   );
 }

@@ -1,11 +1,17 @@
 'use client';
+import { useFadeIn } from '@/lib/hooks/useFadeIn';
 
 export default function Training() {
+  const { elementRef: imageRef, isVisible: imageVisible } = useFadeIn({ threshold: 0.2 });
+  const { elementRef: contentRef, isVisible: contentVisible } = useFadeIn({ threshold: 0.3 });
+
   return (
     <>
-      <section className=" flex bg-[#CCBBF2]/10 px-5 py-12">
+      <section className=" flex bg-[#CCBBF2]/10 px-5 md:px-10 pt-10 pb-20 md:py-20">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-6 lg:flex-row">
           <svg
+            ref={imageRef}
+            className={`fade-in-left ${imageVisible ? 'visible' : ''}`}
             viewBox="0 0 360 280"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -72,19 +78,23 @@ export default function Training() {
                   id="image0_39_11182"
                   width="100%"
                   height="100%"
-                  xlinkHref="pawsitive-dog-1.png"
+                  xlinkHref="pawsitive_dog_3.jpg"
                   preserveAspectRatio="xMidYMid meet"
                 />
               </pattern>
             </defs>
           </svg>
-          <div className="space-y-6">
+          <div 
+            ref={contentRef}
+            className={`fade-in-right ${contentVisible ? 'visible' : ''} space-y-6`}
+            style={{ transitionDelay: '0.2s' }}
+          >
             {' '}
-            <h1 className="space-y-6 text-3xl font-semibold text-grape lg:text-5xl">
-              Pawsitive Reinforcement dog training
-            </h1>
+            <h2 className="space-y-6 text-grape">
+              Pawsitive reinforcement dog training
+            </h2>
             <p>
-              Choose between 3 different high quality & affordable dog training
+              Choose between <span className="text-[#804DEC] font-medium">3 different high quality & affordable</span> dog training
               options. Find the training package that best suits the needs of
               you and your furry companion.
             </p>
