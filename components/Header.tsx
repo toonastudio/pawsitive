@@ -8,12 +8,10 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Get the hero section height (approximately 100vh)
-      const heroHeight = window.innerHeight;
       const scrollPosition = window.scrollY;
       
-      // Only show border after scrolling past hero section
-      setHasScrolled(scrollPosition > heroHeight);
+      // Show background as soon as user starts scrolling
+      setHasScrolled(scrollPosition > 10);
     };
 
     // Add a small delay to ensure page is fully loaded
@@ -30,9 +28,13 @@ export default function Header() {
   return (
     <header 
       id="header" 
-      className="fixed top-0 left-0 right-0 z-50 w-full bg-background/95 backdrop-blur-sm transition-all duration-300"
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
+        hasScrolled 
+          ? 'bg-background backdrop-blur-sm' 
+          : 'bg-transparent'
+      }`}
     >
-      <Nav />
+      <Nav hasScrolled={hasScrolled} />
     </header>
   );
 }

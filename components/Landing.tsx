@@ -13,6 +13,17 @@ export default function Landing() {
 
   return (
     <section id="home" className="relative overflow-hidden pt-[100px] md:px-10">
+      {/* Hero Background Image */}
+      <div 
+        className="absolute inset-0 -z-10"
+        style={{
+          backgroundImage: 'url(/hero-bg.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      />
+      
       <div className="container flex flex-col-reverse items-center lg:block">
         <div
           ref={contentRef}

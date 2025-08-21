@@ -36,7 +36,11 @@ const navigationMenuItems = [
   },
 ];
 
-export function Nav() {
+interface NavProps {
+  hasScrolled: boolean;
+}
+
+export function Nav({ hasScrolled }: NavProps) {
   const { elementRef: navRef, isVisible: navVisible } = useFadeIn({ threshold: 0.1 });
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -113,7 +117,7 @@ export function Nav() {
         <div 
           className="fixed left-0 right-0 top-[100px] bottom-0 z-30 border-t border-border animate-in fade-in-0 duration-500" 
           style={{ 
-            backgroundColor: '#F8F8FE', 
+            backgroundColor: hasScrolled ? 'hsl(var(--background))' : 'transparent',
             position: 'fixed', 
             left: '0', 
             right: '0', 
