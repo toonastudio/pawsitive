@@ -182,7 +182,7 @@ export default function Packages() {
               <TabsTrigger value="adult">Adult</TabsTrigger>
             </TabsList>
             <TabsContent value="puppy">
-              <div className="flex w-full max-w-7xl flex-col justify-center gap-6 lg:flex-row">
+              <div className="flex w-full flex-col justify-center gap-6 lg:flex-row lg:max-w-6xl mx-auto">
                 {puppyPackages.map((item, i) => {
                   const { elementRef: cardRef, isVisible: cardVisible } = useFadeIn({
                     threshold: 0.1,
@@ -193,7 +193,7 @@ export default function Packages() {
                     <Card 
                       key={i}
                       ref={cardRef}
-                      className={`fade-in-up ${cardVisible ? 'visible' : ''} max-w-[400px] shadow-none border-[#B7C4F2]/50`}
+                      className={`fade-in-up ${cardVisible ? 'visible' : ''} flex-1 max-w-[400px] shadow-none border-[#B7C4F2]/50`}
                       style={{ transitionDelay: `${i * 0.1}s` }}
                     >
                       <CardHeader>
@@ -239,8 +239,8 @@ export default function Packages() {
                 })}
               </div>
             </TabsContent>
-            <TabsContent value="adult">
-              <div className="flex w-full max-w-7xl flex-col justify-center gap-6 lg:flex-row">
+                        <TabsContent value="adult">
+              <div className="flex w-full flex-col justify-center gap-6 lg:flex-row lg:max-w-6xl mx-auto">
                 {adultPackages.map((item, i) => {
                   // Temporarily disable fade-in for debugging
                   // const { elementRef: cardRef, isVisible: cardVisible } = useFadeIn({
@@ -252,7 +252,7 @@ export default function Packages() {
                     <Card 
                       key={i}
                       // ref={cardRef}
-                      className="fade-in-up visible max-w-[400px] shadow-none border-[#B7C4F2]/50"
+                      className="fade-in-up visible flex-1 max-w-[400px] shadow-none border-[#B7C4F2]/50"
                       style={{ transitionDelay: `${i * 0.1}s` }}
                     >
                       <CardHeader>
@@ -277,7 +277,7 @@ export default function Packages() {
                               <li key={i} className="flex items-center">
                                 <CheckSVG className="mr-2 h-5 w-5 text-grape" />
                                 {include}
-                              </li>
+                            </li>
                             ))}
                           </ul>
                         </div>
