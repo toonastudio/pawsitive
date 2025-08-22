@@ -38,18 +38,23 @@ const navigationMenuItems = [
 
 interface NavProps {
   hasScrolled: boolean;
+  isMobileMenuOpen: boolean;
+  setIsMobileMenuOpen: (open: boolean) => void;
 }
 
-export function Nav({ hasScrolled }: NavProps) {
+export function Nav({ hasScrolled, isMobileMenuOpen, setIsMobileMenuOpen }: NavProps) {
   const { elementRef: navRef, isVisible: navVisible } = useFadeIn({ threshold: 0.1 });
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    const newState = !isMenuOpen;
+    setIsMenuOpen(newState);
+    setIsMobileMenuOpen(newState);
   };
 
   const closeMenu = () => {
     setIsMenuOpen(false);
+    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -117,7 +122,7 @@ export function Nav({ hasScrolled }: NavProps) {
         <div 
           className="fixed left-0 right-0 top-[100px] bottom-0 z-30 border-t border-border animate-in fade-in-0 duration-500" 
           style={{ 
-            backgroundColor: hasScrolled ? 'hsl(var(--background))' : 'transparent',
+            backgroundColor: 'hsl(var(--background))',
             position: 'fixed', 
             left: '0', 
             right: '0', 

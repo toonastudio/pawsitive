@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 
 export default function Header() {
   const [hasScrolled, setHasScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,16 +26,30 @@ export default function Header() {
     };
   }, []);
 
+  // Prevent scrolling when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup function to restore scroll when component unmounts
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
+
   return (
     <header 
       id="header" 
       className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
-        hasScrolled 
+        hasScrolled || isMobileMenuOpen
           ? 'bg-background backdrop-blur-sm' 
           : 'bg-transparent'
       }`}
     >
-      <Nav hasScrolled={hasScrolled} />
+      <Nav hasScrolled={hasScrolled} isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} />
     </header>
   );
 }
