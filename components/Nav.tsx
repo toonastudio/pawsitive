@@ -140,7 +140,7 @@ export function Nav({ hasScrolled, isMobileMenuOpen, setIsMobileMenuOpen }: NavP
                   href={item.href} 
                   key={item.label}
                   onClick={closeMenu}
-                  className="transition-all duration-500 hover:text-grape py-2"
+                  className="transition-all duration-500 hover:text-primary py-2"
                   style={{
                     opacity: 0,
                     animation: `fadeIn 0.4s ease-in-out ${(index + 1) * 0.1}s forwards`
