@@ -7,11 +7,11 @@ export default function Training() {
 
   return (
     <>
-      <section className=" flex bg-[#CCBBF2]/10 px-5 md:px-10 pt-10 pb-20 md:py-20">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-6 lg:flex-row">
+      <section className=" flex bg-[#CCBBF2]/10 px-5 md:px-10 pt-10 pb-20 md:py-20 px-5">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-5 lg:gap-20 lg:flex-row px-5 h-fit">
           <svg
             ref={imageRef}
-            className={`fade-in-left ${imageVisible ? 'visible' : ''}`}
+            className={`fade-in-left ${imageVisible ? 'visible' : ''} flex-1 w-full min-w-0 h-fit`}
             viewBox="0 0 360 280"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -86,12 +86,13 @@ export default function Training() {
           </svg>
           <div 
             ref={contentRef}
-            className={`fade-in-right ${contentVisible ? 'visible' : ''} space-y-6`}
+            className={`fade-in-right ${contentVisible ? 'visible' : ''} space-y-6 flex-1`}
             style={{ transitionDelay: '0.2s' }}
           >
             {' '}
-            <h2 className="space-y-6 text-grape">
-              Pawsitive reinforcement dog training
+            <h2 className="text-grape">
+              <span className="block lg:inline">Pawsitive reinforcement</span>
+              <span className="block lg:inline">dog training</span>
             </h2>
             <p>
               Choose between <span className="text-[#804DEC] font-medium">3 different high quality & affordable</span> dog training
