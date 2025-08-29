@@ -7,8 +7,8 @@ export default function Training() {
 
   return (
     <>
-      <section className=" flex bg-[#CCBBF2]/10 px-5 md:px-10 pt-10 pb-20 md:py-20 px-5">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-5 lg:gap-20 lg:flex-row px-5 h-fit">
+      <section className=" flex bg-[#CCBBF2]/10 px-5 md:px-10 pt-10 pb-20 md:py-20">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-5 lg:gap-20 lg:flex-row md:px-5 h-fit">
           <svg
             ref={imageRef}
             className={`fade-in-left ${imageVisible ? 'visible' : ''} flex-1 w-full min-w-0 h-fit`}
