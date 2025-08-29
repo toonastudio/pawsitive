@@ -15,6 +15,9 @@ export default function Header() {
       setHasScrolled(scrollPosition > 10);
     };
 
+    // Check initial scroll position immediately
+    handleScroll();
+
     // Add a small delay to ensure page is fully loaded
     const timer = setTimeout(() => {
       window.addEventListener('scroll', handleScroll, { passive: true });
