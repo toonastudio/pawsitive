@@ -8,7 +8,7 @@ interface UseFadeInOptions {
   triggerOnce?: boolean;
 }
 
-export function useFadeIn(options: UseFadeInOptions = {}) {
+export function useFadeIn<T extends Element = HTMLElement>(options: UseFadeInOptions = {}) {
   const {
     threshold = 0.1,
     rootMargin = '0px 0px -50px 0px',
@@ -16,7 +16,7 @@ export function useFadeIn(options: UseFadeInOptions = {}) {
   } = options;
   
   const [isVisible, setIsVisible] = useState(false);
-  const elementRef = useRef<HTMLElement>(null);
+  const elementRef = useRef<T>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(

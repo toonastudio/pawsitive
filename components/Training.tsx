@@ -2,8 +2,8 @@
 import { useFadeIn } from '@/lib/hooks/useFadeIn';
 
 export default function Training() {
-  const { elementRef: imageRef, isVisible: imageVisible } = useFadeIn({ threshold: 0.2 });
-  const { elementRef: contentRef, isVisible: contentVisible } = useFadeIn({ threshold: 0.3 });
+  const { elementRef: imageRef, isVisible: imageVisible } = useFadeIn<SVGSVGElement>({ threshold: 0.2 });
+  const { elementRef: contentRef, isVisible: contentVisible } = useFadeIn<HTMLDivElement>({ threshold: 0.3 });
 
   return (
     <>
